@@ -150,6 +150,38 @@ $trendyol->category->getCategoryTree();
 $trendyol->category->getCategoryAttributes(411);
 ```
 
+### Ürün Servisi (Product Service)
+
+```php
+/**
+ *
+ * Trendyol üzerindeki ürünleri filtrelemek için kullanılır.
+ *
+ * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
+ * @note İsteğe bağlı olarak dizideki alanların istenilen bölümleri eklenmeyebilir veya dizi hiç gönderilmeyebilir.
+ * @return array 
+ *
+ */
+$trendyol->product->filterProducts(
+	array(
+		// Ürün onaylı ya da onaysız kontrolü için kullanılır. Onaylı için true gönderilmelidir	
+		'approved'      => true,
+		// Tekil barkod sorgulamak için gönderilmelidir	
+		'barcode'       => '',
+		// Belirli bir tarihten sonraki ürünleri getirir. Timestamp olarak gönderilmelidir.	
+		'startDate'     => time() - (86400 * 7),
+		//Belirli bir tarihten sonraki önceki getirir. Timestamp olarak gönderilmelidir.	
+		'endDate'       => time(),
+		//Sadece belirtilen sayfadaki bilgileri döndürür.
+		'page'          => 0,
+		// Tarih filtresinin çalışacağı tarih CREATED_DATE ya da LAST_MODIFIED_DATE gönderilebilir	
+		'dateQueryType' => 'CREATED_DATE',
+		// Bir sayfada listelenecek maksimum adeti belirtir.	
+		'size'          => 50
+	)
+);
+```
+
 ### Sipariş Servisi (Order Service)
 
 ```php
