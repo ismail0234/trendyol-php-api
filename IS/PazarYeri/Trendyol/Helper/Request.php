@@ -164,7 +164,7 @@ Class Request
 			}
 		}
 
-		$apiUrl = str_replace('{supplierid}', $this->apiSupplierId, $apiUrl);
+		$apiUrl = str_replace('{supplierId}', $this->apiSupplierId, $apiUrl);
 		if ($this->method == 'POST' || !is_array($requestData) || count($requestData) <= 0) {
 			return $apiUrl;
 		}
@@ -202,7 +202,7 @@ Class Request
 
 		if ($this->method == 'POST') {
 			curl_setopt($ch, CURLOPT_POST, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(Format::requestInitialize($query, $data)));
+			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($requestData));
 		}
 
 		$response = trim(curl_exec($ch));

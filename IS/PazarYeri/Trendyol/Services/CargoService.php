@@ -67,7 +67,7 @@ Class CargoService extends Request
 	 */
 	public function getSuppliersAddresses()
 	{
-		$this->setApiUrl('https://api.trendyol.com/sapigw/suppliers/{supplierid}/addresses');
+		$this->setApiUrl('https://api.trendyol.com/sapigw/suppliers/{supplierId}/addresses');
 		return $this->getResponse(true, true);
 	}
 

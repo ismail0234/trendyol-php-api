@@ -15,7 +15,7 @@ Class OrderService extends Request
 	 * @var string
 	 *
 	 */
-	public $apiUrl = 'https://api.trendyol.com/sapigw/suppliers/{supplierid}/orders';
+	public $apiUrl = 'https://api.trendyol.com/sapigw/suppliers/{supplierId}/orders';
 
 	/**
 	 *
