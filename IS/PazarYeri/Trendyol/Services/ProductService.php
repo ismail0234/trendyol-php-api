@@ -47,8 +47,7 @@ Class ProductService extends Request
 			'endDate'       => array('format' => 'unixFormat'),
 			'page'          => '',
 			'dateQueryType' => array('required' => array('CREATED_DATE' , 'LAST_MODIFIED_DATE')),
-			'size'          => '',
-			'supplierId'    => ''
+			'size'          => ''
 		);
 
 		return $this->getResponse($query, $data);
