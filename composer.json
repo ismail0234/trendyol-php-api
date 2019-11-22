@@ -1,0 +1,20 @@
+{
+    "name": "ismail0234/trendyol-php-api",
+    "description": "Trendyol PHP API",
+    "type": "library",
+    "keywords": ["trendyol", "eticaret", "php api", "trendyol php api", "pazaryeri"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "İsmail Satilmiş",
+            "email": "ismaiil_0234@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "IS\\PazarYeri\\Trendyol\\": "IS/PazarYeri/Trendyol"
+        }
+    },
+    "minimum-stability": "stable"
+}
