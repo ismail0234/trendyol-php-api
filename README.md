@@ -9,8 +9,8 @@ Bu api trendyol için yazılmıştır. Trendyol pazaryeri için yazılmış olan
 ### Change Log
 - See [ChangeLog](https://github.com/ismail0234/trendyol-php-api/blob/master/CHANGELOG.md)
 
-### License
-- See [ChangeLog](https://github.com/ismail0234/trendyol-php-api/blob/master/LICENSE)
+### Licence
+- See [ChangeLog](https://github.com/ismail0234/trendyol-php-api/blob/master/LICENCE)
 
 ## Hızlı Bakış
  * [Kurulum](#kurulum)
