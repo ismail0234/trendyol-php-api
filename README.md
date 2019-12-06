@@ -6,6 +6,10 @@
 
 Bu api trendyol için yazılmıştır. Trendyol pazaryeri için yazılmış olan gelişmiş bir php apisi. Ekstra olarak trendyol üzerinde mağazanıza gelen siparişleri websitenize aktaracak bir fonksiyonda mevcuttur.
 
+## Patron Olun ve Beni Destekleyin!
+
+Yaptığım işlerden memnun iseniz, beni patreon üzerinde desteleyebilirsiniz: https://www.patreon.com/botbenson/
+
 ## Katkı Çağrısı
 
 Çok fazla vaktim olmadığından Trendyolun bütün api fonksiyonları tamamlanmamıştır. Eksik fonksiyonları isterseniz tamamlayarak **pull request** gönderebilirsiniz veya istediğiniz fonksiyonun eklenmesi için **issue** açabilirsiniz. 
