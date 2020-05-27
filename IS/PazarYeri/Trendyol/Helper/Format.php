@@ -5,6 +5,13 @@ namespace IS\PazarYeri\Trendyol\Helper;
 Class Format
 {
 
+	/**
+	 *
+	 * Sınıf ayarlamalarını yapar.
+	 *
+	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
+	 *
+	 */
 	public static function initialize($query, $data)
 	{
 
@@ -47,7 +54,7 @@ Class Format
 	 * @return array 
 	 *
 	 */
-	public function getUrlSpecialParameters($apiUrl)
+	public static function getUrlSpecialParameters($apiUrl)
 	{
 		if(preg_match_all('@\{(.*?)\}@si', $apiUrl, $output)) 
 		{
