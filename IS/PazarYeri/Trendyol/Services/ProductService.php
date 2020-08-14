@@ -43,8 +43,8 @@ Class ProductService extends Request
 		$query = array(
 			'approved'      => '',
 			'barcode'       => '',
-			'startDate'     => array('format' => 'unixFormat'),
-			'endDate'       => array('format' => 'unixFormat'),
+			'startDate'     => array('format' => 'unixTime'),
+			'endDate'       => array('format' => 'unixTime'),
 			'page'          => '',
 			'dateQueryType' => array('required' => array('CREATED_DATE' , 'LAST_MODIFIED_DATE')),
 			'size'          => ''
