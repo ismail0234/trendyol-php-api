@@ -7,6 +7,14 @@ Class Request
 
 	/**
 	 *
+	 * Trendyol Api Software Partner (1 Ocak 2021 Güncellemesi)
+	 * @var string
+	 *
+	 */
+	public $apiSoftwarePartner = 'SelfIntegration';
+	
+	/**
+	 *
 	 * Trendyol Api Url
 	 * @var string
 	 *
@@ -129,7 +137,18 @@ Class Request
 	{
 		$this->method = strtoupper($method);
 	}
-
+	/**
+	 *
+	 * Trendyol için User Agent Döndürür (1 Ocak 2021 Güncellemesi)
+	 *
+	 * @author Ali Tayfur <alitayfur@msn.com>
+	 * @return string 
+	 *
+	 */
+	protected function userAgent()
+	{
+		return $this->apiSupplierId . ' - ' . $this->apiSoftwarePartner;
+	}
 	/**
 	 *
 	 * Trendyol için basic auth döndürür
@@ -195,6 +214,8 @@ Class Request
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 		curl_setopt($ch, CURLOPT_HEADER, false);
 		curl_setopt($ch, CURLOPT_TIMEOUT, 20);	
+		
+		curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent());
 
 		if ($authorization) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $this->authorization()));
