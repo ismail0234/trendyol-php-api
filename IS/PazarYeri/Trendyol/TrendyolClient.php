@@ -40,4 +40,15 @@ Class TrendyolClient extends Gateway
 		$this->apiPassword = $apiPassword;
 	}
 
+    /**
+	 *
+	 * @description Trendyol Api Şifre
+	 * @param string $apiPassword
+	 *
+	 */
+	public function setTestMode($apiTestMode=false)
+	{
+		$this->apiTestMode = $apiTestMode;
+	}
+
 }
