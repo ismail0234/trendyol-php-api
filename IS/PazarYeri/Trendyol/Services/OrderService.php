@@ -24,9 +24,9 @@ Class OrderService extends Request
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 *
 	 */
-	public function __construct($supplierId, $username, $password)
+	public function __construct($supplierId, $username, $password,$testmode)
 	{
-		parent::__construct($this->apiUrl, $supplierId, $username, $password);
+		parent::__construct($this->apiUrl, $supplierId, $username, $password, $testmode);
 	}
 
 	/**
