@@ -230,9 +230,7 @@ Class Request
     public function getResponse($query, $data, $authorization = true)
     {
 
-        $requestData = Format::initialize($query, $data);
-        echo $this->getApiUrl($requestData);
-        exit;
+        $requestData = Format::initialize($query, $data);            
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->getApiUrl($requestData));
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method);
