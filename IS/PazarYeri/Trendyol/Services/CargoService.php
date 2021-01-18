@@ -4,7 +4,7 @@ namespace IS\PazarYeri\Trendyol\Services;
 
 use IS\PazarYeri\Trendyol\Helper\Request;
 
-Class CategoryService extends Request
+Class CargoService extends Request
 {
 
 	/**
@@ -15,7 +15,7 @@ Class CategoryService extends Request
 	 * @var string
 	 *
 	 */
-	public $apiUrl = 'https://api.trendyol.com/sapigw/product-categories';
+	public $apiUrl = '';
 
 	/**
 	 *
@@ -31,41 +31,44 @@ Class CategoryService extends Request
 
 	/**
 	 *
-	 * Trendyol üzerindeki bütün kategorileri getirir.
-	 * createProduct servisine yapılacak isteklerde gönderilecek categoryId
-	 * bilgisi bu servis kullanılarak alınacaktır.
-	 * 
-	 * createProduct yapmak için en alt seviyedeki kategori ID bilgisi kullanılmalıdır. 
-	 * Seçtiğiniz kategorinin alt kategorileri var ise bu kategori bilgisi ile ürün aktarımı yapamazsınız.
+	 * Trendyol üzerindeki bütün kargo şirketlerini getirir.
+     *
+	 * createProduct servisine yapılacak isteklerde gönderilecek kargo firma bilgileri 
+	 * ve bu bilgilere ait ID değerleri bu servis kullanılarak alınacaktır.
+	 *
+	 * Ürün gönderimi yaparken gönderdiğiniz kargo şirketleri, Trendyol sözleşmenizde 
+	 * onayladığınız kargo firmasından farklı olmamalıdır. Bu durum ürünlerinizi yayına çıkmasını engelleyecektir.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
 	 * @return array 
 	 *
 	 */
-	public function getCategoryTree()
+	public function getProviders()
 	{
-		$this->setApiUrl($this->apiUrl);
+		$this->setApiUrl('https://api.trendyol.com/sapigw/shipment-providers');
 		return $this->getResponse(true, true, false);
 	}
 
 	/**
 	 *
-	 * Trendyol üzerindeki kategorinin özelliklerini döndürür.
-	 * createProduct servisine yapılacak isteklerde gönderilecek attributes bilgileri 
-	 * ve bu bilgilere ait detaylar bu servis kullanılarak alınacaktır.
-	 * 
-	 * createProduct yapmak için en alt seviyedeki kategori ID bilgisi kullanılmalıdır. 
-	 * Seçtiğiniz kategorinin alt kategorileri var ise (leaf:true) bu kategori bilgisi ile ürün aktarımı yapamazsınız.
+	 * Trendyol üzerindeki tedarikçi adreslerinizi getirir.
+     *
+	 * createProduct V2 servisine yapılacak isteklerde gönderilecek sipariş ve sevkiyat kargo 
+	 * firma bilgileri ve bu bilgilere ait ID değerleri bu servis kullanılarak alınacaktır. 
+	 *
+	 * "SATICI BAŞVURU SÜRECİM" tam olarak tamamlanmadı ise bu servisi kullanmamanız gerekir.
+	 *
+	 * Ürün gönderimi yaparken adresi ID değerlerini kontrol etmelisiniz. Hatalı gönderim 
+	 * yapılması halinde ürün aktarımı gerçekleşmeyecektir.
 	 *
 	 * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
-	 * @param int $categoryId
 	 * @return array 
 	 *
 	 */
-	public function getCategoryAttributes($categoryId)
+	public function getSuppliersAddresses()
 	{
-		$this->setApiUrl($this->apiUrl . '/{categoryId}/attributes');
-		return $this->getResponse(true, array('categoryId' => $categoryId), false);
+		$this->setApiUrl('https://api.trendyol.com/sapigw/suppliers/{supplierId}/addresses');
+		return $this->getResponse(true, true);
 	}
 
 }
