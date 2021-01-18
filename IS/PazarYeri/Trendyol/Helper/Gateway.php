@@ -27,6 +27,12 @@ Class GateWay
 	 *
 	 */
 	public $apiPassword;
+    /**
+	 *
+	 * @description Trendyol Test Mode
+	 *
+	 */
+    public $apiTestMode;
 
 	/**
 	 *
@@ -78,7 +84,7 @@ Class GateWay
     	if (!class_exists($serviceName)) {
 			throw new TrendyolException("Geçersiz Servis!");
     	}
-		return new $serviceName($this->apiSupplierId, $this->apiUsername, $this->apiPassword);
+		return new $serviceName($this->apiSupplierId, $this->apiUsername, $this->apiPassword, $this->apiTestMode);
     }
     
 }
