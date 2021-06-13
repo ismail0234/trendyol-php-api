@@ -2,6 +2,8 @@
 
 namespace IS\PazarYeri\Trendyol\Helper;
 
+use IS\PazarYeri\Trendyol\Helper\Format;
+
 Class Request
 {
 
@@ -230,25 +232,28 @@ Class Request
     public function getResponse($query, $data, $authorization = true)
     {
 
-        $requestData = Format::initialize($query, $data);            
+        $requestData = Format::initialize($query, $data);
         $ch = curl_init();
+        $header = [];
         curl_setopt($ch, CURLOPT_URL, $this->getApiUrl($requestData));
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->method);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 
         curl_setopt($ch, CURLOPT_USERAGENT, $this->userAgent());
 
         if ($authorization) {
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Basic ' . $this->authorization()));
+            $header[] = 'Authorization: Basic ' . $this->authorization();
         }
 
         if ($this->method == 'POST') {
+            $header[] = 'Content-Type: application/json';
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($requestData));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
         }
-
+        curl_setopt($ch, CURLOPT_HTTPHEADER,$header);
         $response = trim(curl_exec($ch));
         if (empty($response)) {
             throw new TrendyolException("Trendyol boş yanıt döndürdü.");
