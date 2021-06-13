@@ -84,9 +84,12 @@ Class Format
 	 * @param int $timestamp
 	 *
 	 */
-	public static function trim($text)
-	{
-		return trim($text);
-	}
+    public static function trim($text)
+    {
+        if(is_string($text)){
+            return trim($text);
+        }
+        return $text;
+    }
 
 }

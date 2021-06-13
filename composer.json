@@ -10,7 +10,10 @@
             "email": "ismaiil_0234@hotmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "ext-curl": "*",
+        "ext-json": "*"
+    },
     "autoload": {
         "psr-4": {
             "IS\\PazarYeri\\Trendyol\\": "IS/PazarYeri/Trendyol"
