@@ -194,6 +194,176 @@ $trendyol->product->filterProducts(
 		'size'          => 50
 	)
 );
+
+/**
+ *
+ * Trendyol'a ürün göndermek için kullanılır.
+ *
+ * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
+ * @return array 
+ *
+ */
+$trendyol->product->createProducts(
+	array(
+		"items" => [
+			[
+				//"? / & % + ^ ' * _" boşluk gibi özel karakterler kullanılamaz. Barkodunuzun ortasında boşluk varsa birleştirilerek içeri alınır. Stok-fiyat güncellemelerinizi de içeri alınan barkoda göre yapmanız gerekmektedir.
+				"barcode" => "barkod-1234",
+				//Ürün ismi.
+				"title" => "Bebek Takımı Pamuk", 
+				//Ana Ürün Kodu
+				"productMainId" => "1234BT", 
+				//Trendyol Marka ID Bilgisi. Marka bilgilerini çekeceğiniz servise buradan ulaşabilirsiniz.
+				"brandId" => 1791,
+				//Trendyol Kategori ID Bilgisi. Kategori bilgilerini çekeceğiniz servise buradan ulaşabilirsiniz.
+				"categoryId" => 411, 
+				//Stok miktarı
+				"quantity" => 100, 
+				//Tedarikçi iç sistemindeki unique stok kodu
+				"stockCode" => "STK-345", 
+				//Desi miktarı
+				"dimensionalWeight" => 2, 
+				//Ürün açıklama bilgileridir.
+				"description" => "Ürün açıklama bilgisi", 
+				//Ürün liste fiyatı para birimidir.
+				"currencyType" => "TRY", 
+				//Ürün liste fiyatı(Satış fiyatı düşük olunca üstü çizilen fiyat) PSF
+				"listPrice" => 250.99, 
+				//Ürün satış fiyatı TSF
+				"salePrice" => 120.99, 
+				//Ürün KDV oranı 0,1,8,18 gibi olmalı
+				"vatRate" => 18, 
+				//Trendyol Kargo Firması Bilgisi
+				"cargoCompanyId" => 10, 
+				//Ürün Trendyol sistemindeki sevkiyat depo adresi ID bilgisi
+				"shipmentAddressId" => 0, 
+				//Ürün Trendyol sistemindeki iade depo adresi ID bilgisi
+				"returningAddressId" => 0, 
+				//Ürün görsellerine ait URL adresi listesidir. Görsel url adresleri SSL sertifikalı "https" formatında adresler olmalıdır. Bir barkod için maksimum 8 adet görsel eklenebilir
+				"images" => [
+					[
+						"url" => "https://www.sampleadress/path/folder/image_1.jpg"
+					] 
+				], 
+				"attributes" => [
+					[
+						"attributeId" => 338, 
+                        "attributeValueId" => 6980 
+					], 
+					[
+                        "attributeId" => 343, 
+                        "attributeValueId" => 4294 
+					], 
+					[
+                        "attributeId" => 346, 
+                        "attributeValueId" => 4290 
+					]
+				] 
+			]
+		]
+	)
+);
+
+/**
+ *
+ * Trendyol'a aktarılan ürünleri güncellemek için kullanılır.
+ * Güncellenmek istenen ürünün onaylı veya onaysız olmasına göre güncelleyebileceğiniz alanlar değişir.
+ * https://developers.trendyol.com/tr/urun-entegrasyonu/v2/product-update-v2
+ *
+ * @author Muhammed emin KÖSE <pinoki-tr@hotmail.com>
+ * @return array 
+ *
+ */
+$trendyol->product->updateProducts(
+	array(
+		"items" => [
+			[
+				//"? / & % + ^ ' * _" boşluk gibi özel karakterler kullanılamaz. Barkodunuzun ortasında boşluk varsa birleştirilerek içeri alınır. Stok-fiyat güncellemelerinizi de içeri alınan barkoda göre yapmanız gerekmektedir.
+				"barcode" => "barkod-1234",
+				//Ürün ismi.
+				"title" => "Bebek Takımı Pamuk", 
+				//Ana Ürün Kodu
+				"productMainId" => "1234BT", 
+				//Trendyol Marka ID Bilgisi. Marka bilgilerini çekeceğiniz servise buradan ulaşabilirsiniz.
+				"brandId" => 1791,
+				//Trendyol Kategori ID Bilgisi. Kategori bilgilerini çekeceğiniz servise buradan ulaşabilirsiniz.
+				"categoryId" => 411, 
+				//Stok miktarı
+				"quantity" => 100, 
+				//Tedarikçi iç sistemindeki unique stok kodu
+				"stockCode" => "STK-345", 
+				//Desi miktarı
+				"dimensionalWeight" => 2, 
+				//Ürün açıklama bilgileridir.
+				"description" => "Ürün açıklama bilgisi", 
+				//Ürün liste fiyatı para birimidir.
+				"currencyType" => "TRY", 
+				//Ürün liste fiyatı(Satış fiyatı düşük olunca üstü çizilen fiyat) PSF
+				"listPrice" => 250.99, 
+				//Ürün satış fiyatı TSF
+				"salePrice" => 120.99, 
+				//Ürün KDV oranı 0,1,8,18 gibi olmalı
+				"vatRate" => 18, 
+				//Trendyol Kargo Firması Bilgisi
+				"cargoCompanyId" => 10, 
+				//Ürün Trendyol sistemindeki sevkiyat depo adresi ID bilgisi
+				"shipmentAddressId" => 0, 
+				//Ürün Trendyol sistemindeki iade depo adresi ID bilgisi
+				"returningAddressId" => 0, 
+				//Ürün görsellerine ait URL adresi listesidir. Görsel url adresleri SSL sertifikalı "https" formatında adresler olmalıdır. Bir barkod için maksimum 8 adet görsel eklenebilir
+				"images" => [
+					[
+						"url" => "https://www.sampleadress/path/folder/image_1.jpg"
+					] 
+				], 
+				"attributes" => [
+					[
+						"attributeId" => 338, 
+                        "attributeValueId" => 6980 
+					], 
+					[
+                        "attributeId" => 343, 
+                        "attributeValueId" => 4294 
+					], 
+					[
+                        "attributeId" => 346, 
+                        "attributeValueId" => 4290 
+					]
+				] 
+			]
+		]
+	)
+);
+
+/**
+ *
+ * Trendyol'a aktarılan ve onaylanan ürünlerin fiyat ve stok bilgileri eş zamana yakın güncellenir.
+ * Stok ve fiyat bligilerini istek içerisinde ayrı ayrı gönderebilirsiniz.
+ *
+ * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
+ * @return array 
+ *
+ */
+$trendyol->product->updatePriceAndInventory(
+	array(
+		'items'=> array(
+			'barcode' => '8680000000',
+			'quantity' => 100,
+			'listPrice' => 112.85,
+			'salePrice' => 113.85,
+            )
+	)
+);
+
+/**
+ *
+ * BatchRequestId ile alınan işlemlerin sonucunun kontrolünü yapmak için kullanılır.
+ *
+ * @author Ismail Satilmis <ismaiil_0234@hotmail.com>
+ * @return array 
+ *
+ */
+$trendyol->product->getBatchRequestResult("5631d1a1-ec81-496f-9407-99876554433-1529820717");
 ```
 
 ### Sipariş Servisi (Order Service)
