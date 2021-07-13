@@ -47,11 +47,11 @@ Class Database
 
 		$response = \PDO::getAvailableDrivers();
 		if (count($response) <= 0 || empty($response)) {
-			throw new N11Exception("Sunucunuzda PDO Aktif Olmalıdır.");
+			throw new TrendyolException("Sunucunuzda PDO Aktif Olmalıdır.");
 		}
 
 		if (!in_array('sqlite', $response)) {
-			throw new N11Exception("Sunucunuzda SQLite PDO Sürücüsü Aktif Olmalıdır.");
+			throw new TrendyolException("Sunucunuzda SQLite PDO Sürücüsü Aktif Olmalıdır.");
 		}
 
 	}
