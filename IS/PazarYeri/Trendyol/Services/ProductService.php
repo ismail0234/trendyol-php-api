@@ -94,6 +94,45 @@ Class ProductService extends Request
     }
 
     /**
+     * Ürün bilgilerini güncellemek için kullanılır. (Fiyat ve stok güncellemek için updatePriceAndInventory fonksiyonu kullanılmalıdır)
+     *
+     *
+     * @param array $data
+     * @return array
+     * @throws TrendyolException
+     */
+    public function updateProducts($data = array())
+    {
+        $this->setApiUrl('https://api.trendyol.com/sapigw/suppliers/{supplierId}/v2/products');
+        $this->setMethod("PUT");
+        $query = array(
+            'items'=> array( 
+                'barcode'               => '',
+                'title'                 => '',
+                'productMainId'         => '',
+                'brandId'               => '',
+                'categoryId'            => '',
+                'quantity'              => '',
+                'stockCode'             => '',
+                'dimensionalWeight'     => '',
+                'description'           => '',
+                'currencyType'          => '',
+                'listPrice'             => '',
+                'salePrice'             => '',
+                'cargoCompanyId'        => '',
+                'deliveryDuration'      => '',
+                'images'                => '',
+                'vatRate'               => '',
+                'shipmentAddressId'     => '',
+                'returningAddressId'    => '',
+                'attributes'            => ''
+            ),
+        );
+
+        return $this->getResponse($query, $data);
+    }
+
+    /**
      * Trendyol'a aktarılan ve onaylanan ürünlerin fiyat ve stok bilgileri eş zamana yakın güncellenir. Stok ve fiyat bligilerini istek içerisinde ayrı ayrı gönderebilirsiniz.
      *
      * @param array $data
