@@ -6,10 +6,6 @@
 
 Bu api trendyol için yazılmıştır. Trendyol pazaryeri için yazılmış olan gelişmiş bir php apisi. Ekstra olarak trendyol üzerinde mağazanıza gelen siparişleri websitenize aktaracak bir fonksiyonda mevcuttur.
 
-## Bağış Yapın
-
-Yaptığım işlerden memnun iseniz, daha iyi ve daha çok iş çıkartmam için beni destekleyebilirsiniz;
-
 ## Discord
 
 Discord sunucumuza katılmak isterseniz hepinizi bekleriz; https://discord.gg/botbenson
@@ -17,8 +13,6 @@ Discord sunucumuza katılmak isterseniz hepinizi bekleriz; https://discord.gg/bo
 ## Katkı Çağrısı
 
 Çok fazla vaktim olmadığından Trendyolun bütün api fonksiyonları tamamlanmamıştır. Eksik fonksiyonları isterseniz tamamlayarak **pull request** gönderebilirsiniz veya istediğiniz fonksiyonun eklenmesi için **issue** açabilirsiniz. 
-
-**Unutmayın bu projeyi ücretsiz olarak yaptığımdan hemen yapacağım diye bir şey olamaz!**
 
 ### Change Log
 - See [ChangeLog](https://github.com/ismail0234/trendyol-php-api/blob/master/CHANGELOG.md)
