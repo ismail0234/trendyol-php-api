@@ -210,7 +210,7 @@ Class Request
         }
 
         $apiUrl = str_replace('{supplierId}', $this->apiSupplierId, $apiUrl);
-        if ($this->method == 'POST' || !is_array($requestData) || count($requestData) <= 0) {
+        if ($this->method == 'POST' || $this->method == 'PUT' || !is_array($requestData) || count($requestData) <= 0) {
             return $apiUrl;
         }
 
@@ -248,7 +248,7 @@ Class Request
             $header[] = 'Authorization: Basic ' . $this->authorization();
         }
 
-        if ($this->method == 'POST') {
+        if ($this->method == 'POST' || $this->method == 'PUT') {
             $header[] = 'Content-Type: application/json';
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
